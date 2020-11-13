@@ -1,0 +1,14 @@
+<ETHERNETKRL>
+	<CONFIGURATION>
+		<EXTERNAL>
+			<IP>172.31.1.199</IP>
+			<PORT>59152</PORT>
+		</EXTERNAL>
+	</CONFIGURATION>
+	<RECEIVE/>
+	<SEND>
+      <XML>
+         <ELEMENT Tag="torchState"/>
+       </XML>
+	</SEND>
+</ETHERNETKRL>
