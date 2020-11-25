@@ -2,6 +2,7 @@
 
 import socket
 from gpiozero import LED
+from time import sleep
 
 def main():
 	print ("Starting...")
@@ -14,14 +15,14 @@ def restartConnection():
 	conn = openConnection()
 
 	if conn:
-		torch = LED(18)
+		torch = LED(17)
+		torch.off()
 		BUFFER_SIZE = 1024
 		while(True):
 			data = conn.recv(BUFFER_SIZE)
 			if not data:
 				break
 			else:
-				print(str(data))
 				if '1' in str(data):
 					torch.on()
 					print("ON")
@@ -31,6 +32,8 @@ def restartConnection():
 
 		print ("Connection Lost")
 
+		torch.off()
+		torch.close()
 		closeConnection(conn)
 		restartConnection()
 
